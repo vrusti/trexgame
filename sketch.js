@@ -7,6 +7,7 @@ var score;
 var PLAY =1;
 var END =0;
 var gameState = PLAY;
+var jumpSound, dieSound, checkpoint;
  
 var restart, restartimg, gameOver, gameOverimg;
 
@@ -23,6 +24,7 @@ function preload(){
   obstacles6 = loadImage("obstacle6.png");
   restartimg = loadImage("restart.png");
   gameOverimg= loadImage("gameOver.png"       );
+  jumpSound = loadSound ("jump.mp3");
   
 }
 
@@ -71,6 +73,7 @@ function draw() {
   
   if(keyDown("space")) {
     trex.velocityY = -10;
+   jumpSound.play();
   }
   
   trex.velocityY = trex.velocityY + 0.8
